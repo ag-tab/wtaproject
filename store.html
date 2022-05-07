@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Products</title>
+
+<style >
+
+* {box-sizing: border-box}
+body {font-family: Verdana, sans-serif; margin:0}
+.mySlides {display: none}
+img {vertical-align: middle;}
+
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* .text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+} */
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+/* .fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+} */
+
+    .button{
+        display: block;
+        background-color: #4CAF50; /* Green */
+        border: none;
+        color: #4CAF50;
+        padding: 16px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 1%;
+        transition-duration: 0.4s;
+        cursor: pointer;
+        width: 100%;
+    }
+    .button2{
+        display: block;
+        /* background-color: #d1b94c; */
+        background-color: white;
+        border: none;
+        color: black;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 1%;
+        transition-duration: 0.4s;
+        cursor: pointer;
+        width: 50%;
+        border-radius: 12px;
+    }
+
+    .button1 {
+  /* background-color:#d1b94c; */
+  background-color: white;
+  color:black;
+  border: 2px solid #d1b94c;
+}
+
+
+    .button2:hover {
+  background-color: rgba(155, 153, 153, 0.562)
+  ;
+  color: black;
+}
+
+
+
+    .button1 {
+  background-color: #4CAF50;
+  color:white;
+  border: 2px solid #4CAF50;
+}
+
+.button1:hover {
+  background-color: white;
+  color: #4CAF50;
+}
+
+
+
+.Slides{
+    display: none;
+}
+
+ div.groove {border-style: groove;
+                margin-top: 7%;
+
+        }
+        .header {
+            margin-top: 5%;
+            background-color: #4CAF50;
+            opacity: 70%;
+            text-align: justify;
+            padding: 40px;
+            color: white;
+            }
+
+        .col1{
+            float:left;
+            width:100%;
+
+        }
+        .col2{
+            float:left;
+            width:100%;
+
+        }
+
+
+
+    @media (min-width: 800px) {
+    .col1{ width: 30%;
+        margin-left:15%;
+      float:left;
+
+
+}
+
+
+    .col2{ width: 30%;
+
+        margin-left: 5%;
+        float:left;
+        }
+
+        }
+
+</style>
+
+<!-- For navbar -->
+<link rel="stylesheet" href="css/navbar.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap">
+<script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+
+</head>
+<body>
+
+  <div class="wrapper">
+  	<div class="navbar">
+  		<div class="inner_navbar">
+  			<div class="logo">
+  				<a href="mainpage.html"><img src="images/logo_small.jpg"></img><span style="font-size: 30px;font-family: 'Ubuntu', sans-serif;">Arecatech</span></a>
+  			</div>
+  			<div class="menu">
+  				<ul>
+  					<li><a href="mainpage.html">Home</a></li>
+  					<li><a href="gallery.html">Gallery</a></li>
+  					<li><a href="mainpage.html#matchmaking">Match</a></li>
+  					<li><a href="store.html" class="active">Products</a></li>
+  					<li><a href="cart.html">Cart</a></li>
+            <li><a href="login.html">Profile</a></li>
+  				</ul>
+  			</div>
+  		</div>
+  		<div class="hamburger">
+  			<i class="fas fa-bars"></i>
+  		</div>
+  	</div>
+    </div>
+    <script>
+    var hamburger = document.querySelector(".hamburger");
+    var menu = document.querySelector(".menu");
+
+    hamburger.addEventListener("click", function(){
+    menu.classList.toggle("active");
+  })
+    </script>
+
+
+<div class="header" style="width: 100%;">
+    <h1 style="font-family: 'Times New Roman', Times, serif; font-size: 200%;"  > Products</h1>
+    <p style="  font-family: 'Times New Roman', Times, serif; font-size:150%" > We are getting set to sell various products to help and improve the different stages involved in arecanut processing.
+        We are starting this venture by selling Arecanut  harvesting poles (Carbon Fibre Telescopic poles).</p>
+    </div>
+
+
+
+
+<div class="col1" >
+    <div class="slideshow-container">
+
+        <div class="mySlides">
+          <div class="numbertext">1 / 4</div>
+          <img src="images/product.jpg" width="100%" height="520px">
+
+        </div>
+
+        <div class="mySlides">
+          <div class="numbertext">2 / 4</div>
+          <img src="images/product1copy.jpg" height="520px" width="100%" >
+
+        </div>
+
+        <div class="mySlides ">
+          <div class="numbertext">3 / 4</div>
+          <img src="images/product2.jpg" width="100%" height="520px">
+
+        </div>
+
+        <div class="mySlides ">
+          <div class="numbertext">4 / 4</div>
+          <img src="images/product3.jpg" width="100%" height="520px">
+
+        </div>
+
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+        </div>
+        <br>
+
+        <div style="text-align:center">
+          <span class="dot" onclick="currentSlide(1)"></span>
+          <span class="dot" onclick="currentSlide(2)"></span>
+          <span class="dot" onclick="currentSlide(3)"></span>
+          <span class="dot" onclick="currentSlide(4)"></span>
+        </div>
+
+
+
+      </div>
+
+<div>
+ <figcaption class="col2" style="color: #4CAF50; font-size:xx-large;margin-top: 1%;" id="name">Carbon Fibre Telescopic poles(60 ft)</figcaption><br>
+ <p class="col2" style=" font-size: smaller;"  >
+  Arecanut harvesting is made easy with Carbon Fibre extension telescopic
+   poles which extend upto 60 to 70 feet high. Our product is exceptional in terms of its light weight,
+    locking system of sub-poles and user experience. The quality of product is assured by us.
+ </p>
+        <div class= "col2" style="font-size:200%; font-family:Arial, Helvetica, sans-serif ; color: rgb(118, 122, 120);" id="price">Rs:50,000/-</div>
+        <button class=" col2 button button1" onclick="window.location.href='payment.html'">Buy Now</button>
+        <button class=" col2 button button1" onclick="window.location.href='cart.html'">Add to Cart</button>
+
+        <!-- <div class="col2"> -->
+          <button class=" col 2 button2 button2" style="width: 20%; " id="70" onclick="SeventyFeet()">70 ft</button>
+          <button class=" col2 button2 button2" style="width: 20%;background: rgba(155, 153, 153, 0.56)" id="60"  onclick="SixtyFeet()" >60 ft</button>
+
+
+           <!-- </div> -->
+        <form name="quantityform">
+        <label class ="col2" for="Qty">Select Quantity:</label>
+        <select class ="col2" name="Qty" id="quantity" onchange="CalculateOutput()">
+          <option value= "" selected disabled hidden>Choose here</option>
+          <option  value="1">1</option>
+          <option value="2" >2</option>
+          <option  value="3" >3</option>
+          <option  value="4" >4</option>
+
+
+        </select>
+
+</form>
+
+
+        <div class="col2">Total amount: <p id="amt"></p> </div>
+
+
+
+
+          </div>
+
+
+
+
+
+           <div class="col2">
+             <!-- <p>Here is start</p> -->
+
+           </div>
+
+
+
+
+<script src="js/store.js">
+
+</script>
+
+
+
+</body>
+
+
+
+</html>

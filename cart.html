@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Shopping Cart</title>
+	<link rel="stylesheet" type="text/css" href="css/cart.css">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,900" rel="stylesheet">
+</head>
+<body>
+    <div class="shopping-cart">
+        <!-- Title -->
+        <div class="title">
+          Shopping Cart
+        </div>
+
+        <!-- Product #1 -->
+        <div class="item">
+          <div class="buttons">
+            <span class="delete-btn"></span>
+            <!-- <span class="like-btn"></span> -->
+          </div>
+
+          <div class="image">
+            <img src="images/cart_product.jpg" alt="" />
+          </div>
+
+          <div class="description">
+            <span>Carbon Fibre Telescopic Poles</span>
+            <span>60 ft</span>
+            <!-- <span>White</span> -->
+          </div>
+
+          <div class="quantity">
+            <button value="50000" class="plus-btn" type="button" name="button" onclick="increment()">
+              <img src="images/plus.svg" alt="" />
+            </button>
+
+            <input id="num" type="text" name="name" value="1"  >
+            <button value="50000" class="minus-btn" type="button" name="button" onclick="decrement()">
+              <img src="images/minus.svg" alt="" />
+            </button>
+          </div>
+
+          <div id="price" class="total-price" value="549">₹50000</div>
+        </div>
+
+        <!-- Product #2 -->
+        <div class="item">
+          <div class="buttons">
+            <span class="delete-btn"></span>
+            <!-- <span class="like-btn"></span> -->
+          </div>
+
+          <div class="image">
+            <img src="images/cart_product1.jpg" alt=""/>
+          </div>
+
+          <div class="description">
+            <span>Carbon Fibre Telescopic Poles</span>
+            <span>70 ft</span>
+            <!-- <span>White</span> -->
+          </div>
+
+          <div class="quantity">
+            <button value="75000" class="plus-btn" type="button" name="button" onclick="increment()">
+              <img src="images/plus.svg" alt="" />
+            </button>
+            <input id="num" type="text" name="name" value="1">
+            <button value="75000" class="minus-btn" type="button" name="button" onclick="decrement()">
+              <img src="images/minus.svg" alt="" />
+            </button>
+          </div>
+
+          <div class="total-price">₹75000</div>
+        </div>
+
+        <!-- Product #3 -->
+        <!-- <div class="item">
+          <div class="buttons">
+            <span class="delete-btn"></span>
+            <span class="like-btn"></span>
+          </div>
+
+          <div class="image">
+            <img src="item-3.png" alt="" />
+          </div>
+
+          <div class="description">
+            <span>Our Legacy</span>
+            <span>Brushed Scarf</span>
+            <span>Brown</span>
+          </div>
+
+          <div class="quantity">
+            <button class="plus-btn" type="button" name="button" onclick="increment()">
+              <img src="plus.svg" alt="" />
+            </button>
+            <input type="text" name="name" value="1">
+            <button class="minus-btn" type="button" name="button" onclick="decrement()">
+              <img src="minus.svg" alt="" />
+            </button>
+          </div>
+
+          <div class="total-price">$349</div>
+        </div> -->
+        <div class="total" id="total" style="text-align: center; margin-top: 15px;">
+
+        </div>
+        <div id="checkout" name="checkout" class="checkout" style="text-align: center;">
+            <a href="payment.html">
+                <button id="checkout-btn" class="checkout-btn" type="button" >
+                    CHECKOUT
+                </button>
+            </a>
+
+        </div>
+      </div>
+
+      <script src="js/cart.js"></script>
+</body>
+</html>

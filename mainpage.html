@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Arecatech</title>
+
+  <!-- For navbar -->
+  <link rel="stylesheet" href="css/navbar.css">
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap">
+  <!-- For gallery -->
+  <link rel="stylesheet" type="text/css" href="css/gallery_style.css">
+  <link rel="stylesheet" type="text/css" href="css/lightbox.min.css">
+  <!-- For footer -->
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+  <link href="http://fonts.googleapis.com/css?family=Cookie" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="css/footer.css">
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+  <!-- For gallery -->
+  <script src="js/lightbox-plus-jquery.min.js"></script>
+  <!-- For navbar -->
+  <!-- <script src="https://kit.fontawesome.com/b99e675b6e.js"></script> -->
+
+	<style>
+  /* For gallery pics in mainpage */
+    gallery_mainpics {
+  		width: 450px;
+  		height: 500px;
+  		object-fit: contain;
+		}
+  /* For youtube video */
+  .iframe-container{
+    float: right;
+  position: relative;
+  width: 50%;
+  padding-bottom: 56.25%;
+  height: 0;
+}
+.iframe-container iframe{
+  position: absolute;
+  top:0;
+  left: 0;
+  width: 100%;
+  height: 40%;
+}
+
+	</style>
+</head>
+
+<body>
+
+  <!-- <p class="Banner" id="Banner">End of season sales is here!<button class="BuyNow" type="button" onclick="window.location.href = 'products.html';">Buy Now</button></p> -->
+
+<div class="wrapper">
+	<div class="navbar">
+		<div class="inner_navbar">
+			<div class="logo">
+				<a href="mainpage.html"><img src="images/logo_small.jpg"></img><span style="font-size: 30px;font-family: 'Ubuntu', sans-serif;">Arecatech</span></a>
+			</div>
+			<div class="menu">
+				<ul>
+					<li><a href="mainpage.html" class="active">Home</a></li>
+					<li><a href="gallery.html">Gallery</a></li>
+					<li><a href="mainpage.html#matchmaking">Match</a></li>
+					<li><a href="store.html">Products</a></li>
+					<li><a href="cart.html">Cart</a></li>
+          <li><a href="login.html">Profile</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="hamburger">
+			<i class="fas fa-bars"></i>
+		</div>
+	</div>
+  </div>
+  <script>
+  var hamburger = document.querySelector(".hamburger");
+  var menu = document.querySelector(".menu");
+
+  hamburger.addEventListener("click", function(){
+  menu.classList.toggle("active");
+})
+  </script>
+
+
+<!-- <p style="margin:20px;padding:10px;">.</p> -->
+<div class="mainpage_gallery" style="padding:90px 0px 0px 2px;" onclick="window.location.href='gallery.html'">
+  <h2 style="font-size:30px;">Gallery</h2>
+
+  <div class="gallery">
+    <a href="gallery.html"><img class="gallery_mainpics" src="images/img1.jpg"></a>
+    <a href="gallery.html"><img class="gallery_mainpics" src="images/img2.jpg"></a>
+    <a href="gallery.html"><img class="gallery_mainpics" src="images/img3.jpg"></a>
+    <a href="gallery.html"><img class="gallery_mainpics" src="images/img4.jpg"></a>
+  </div>
+</div>
+
+<!-- <a id="matchmaking" style="padding-bottom:20px;">.</a> -->
+<div id="matchmaking" class="" style="height:30px;">
+<p>.</p>
+</div>
+<div class="mainpagematchmaking" style="padding:30px 2px 20px 2px;background-color:#efefef;">
+  <h2 style="font-size:30px;">Matching harvesters and growers</h2>
+  <div class="matchmaking" style="padding:5px 10px;font-size:20px;">
+    <p>Arecanut harvesting and processing requires huge labour force and expensive machineries.
+      Acknowledging these difficulties encountered by small scale Arecanut growers, we have
+      designed a match making feature where Arecanut growers are matched to Arecanut
+      harvesters who pay cash in exchange for the raw Arecanut produce harvested from growers field.
+    </p><br>
+    <p>User of this feature has to choose whether they are Arecanut grower or harvester.
+      Growers have to enter details of their field and its yield while harvesters have to enter their
+      prefered location of field and target quantity of produce.The algorithm matches growers and harvesters based on the input details and
+      shows the matched results with their contact information.
+    </p><br>
+    <p style="font-size:22px;padding-bottom:10px;"><b>Are you?</b></p>
+
+    <button class="grow_har" onclick="window.location.href='login.html'">Harvester</a></button>
+    <span>or</span>
+    <button class="grow_har"onclick="window.location.href='login.html'">Grower</a></button>
+    <style>
+      button.grow_har{
+        background-color: #4CAF50;
+        border: none;
+        color: white;
+        padding: 15px 30px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+      }
+    </style>
+  </div>
+</div>
+
+<div style="padding:20px 2px 20px 2px;" onclick="window.location.href='store.html'">
+  <h2 style="font-size:30px;padding-bottom:15px;">Products</h2>
+
+  <div class="products" style="font-size:20px;">
+    <p>We are getting set to sell various products to help and improve the different stages involved in arecanut processing.
+    We are starting this venture by selling Arecanut  harvesting poles (Carbon Fibre Telescopic poles).</p>
+    <img src="images/img1.jpg" alt="Telescopic pole" style="padding:10px 10px; width:30%;height: 300px;float:left;">
+    <b>1. Carbon Fibre Telescopic poles</b>
+<p>Arecanut harvesting is made easy with Carbon Fibre extension telescopic poles. The product is around 7 feet tall and extends to 60/70 feet high when all the locks are unlocked.<br><br> Our product is exceptional in terms of its light weight,locking system of sub-poles and user experience. The quality of product is assured by us.</p>
+    <!-- <div class="iframe-container">
+      <iframe width="674" height="379" src="https://www.youtube.com/embed/qSniO13gwzE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div> -->
+<br><br><br><br><br><br>
+<p style="color:green;font-size:25px;">Check price here<a href="store.html" style="">.</a></p>
+  </div>
+</div>
+
+<!-- <div style="padding:200px;">
+  .
+</div> -->
+  <footer id="footer_mainpage" class="footer-distributed">
+
+    <div class="footer-left">
+      <!-- <h3>ARECATECH</h3> -->
+      <img src="images/logo1.png" class="center">
+
+      <p class="footer-links">
+        <a href="mainpage.html">Home</a>
+        ·
+        <a href="store.html">Products</a>
+        ·
+        <a href="mainpage.html#matchmaking">Match Making</a>
+        ·
+        <!-- <a href="#">About</a> -->
+        <!-- · -->
+        <a href="#footer_mainpage">Faq</a>
+        ·
+        <a href="#footer_mainpage">Contact</a>
+      </p>
+
+      <p class="footer-company-name"><br><br>SAHA &copy; 2022</p>
+    </div>
+
+    <div class="footer-center">
+
+      <div>
+        <i class="fa fa-map-marker"></i>
+                  <a href="https://goo.gl/maps/qdTaN48DkPo7gtRf9" target="_blank">
+        <p><span>SRI NIVASA, KK Road, Shimoga(Dist)</span> Karnataka, India - 577243</p>
+              </a>
+      </div>
+
+      <div>
+        <i class="fa fa-phone"></i>
+        <p>+91 95916 05428</p>
+      </div>
+
+      <div>
+        <i class="fa fa-envelope"></i>
+        <p><a href="mailto:contactarecatech@gmail.com">contactarecatech@gmail.com</a></p>
+      </div>
+
+    </div>
+
+    <div class="footer-right">
+
+      <p class="footer-company-about">
+        <span>About</span>
+        We at Arecatech believe that implementing latest technology in field of agriculture is very essential and want to ease and improvise the steps involved in arecanut processing by connecting you to right people and products.
+      </p>
+
+      <div class="footer-icons">
+
+        <a href="#"><i class="fa fa-facebook"></i></a>
+        <a href="#"><i class="fa fa-twitter"></i></a>
+        <a href="#"><i class="fa fa-linkedin"></i></a>
+        <a href="#"><i class="fa fa-github"></i></a>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+</body>
+
+</html>
