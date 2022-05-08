@@ -1,4 +1,4 @@
-# [Arecatech](https://www.arecatech.com/)
+# WTA_Project
 ***
 The objectives of this project is to build a website to connect Arecanut growers and harvesters, promote and sell useful agricultural products.
 ---
