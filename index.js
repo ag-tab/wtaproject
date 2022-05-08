@@ -55,8 +55,8 @@ app.get('/store.html',(req,res) =>{
 })
 
 //Cart page
-app.get('/cart.html',(req,res) =>{
-    res.sendFile(__dirname+'/cart.html');
+app.get('/store.html#Cartdiv',(req,res) =>{
+    res.sendFile(__dirname+'/store.html#Cartdiv');
 })
 
 //Payment page
