@@ -6,8 +6,8 @@ const bodyParser = require('body-parser');
 const db = mysql.createConnection({
     host: 'localhost',
     user: 'pma',
-    password:'2430'
-    // database: 'wtaproject'
+    password:'2430',
+    database: 'wtaproject'
 })
 
 //Connect to MySQL
@@ -18,14 +18,22 @@ db.connect(err =>{
     console.log('Connected to MySQL')
 })
 
+var user_id=1;
+
 const app = express()
+
+app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(express.static("public"))
-
+app.use(express.static("views"))
+// app.set('views', __dirname + '/');
+// app.engine('html', engines.mustache);
+// app.set('view engine', 'html');
 //Home page
 app.get('/',(req,res) =>{
     // res.sendFile(path.join(__dirname,'/mainpage.html'));
     res.sendFile(__dirname+'/mainpage.html');
+
 })
 app.get('/mainpage.html',(req,res) =>{
     res.sendFile(__dirname+'/mainpage.html');
@@ -51,21 +59,52 @@ app.get('/cart.html',(req,res) =>{
     res.sendFile(__dirname+'/cart.html');
 })
 
+//Payment page
+app.get('/payment.html',(req,res) =>{
+    res.sendFile(__dirname+'/payment.html');
+})
+
 //Login page
 app.get('/login.html',(req,res) =>{
     res.sendFile(__dirname+'/login.html');
 })
 
-//Create database
-app.get('/createdb',(req,res) =>{
-    let sql = 'CREATE DATABASE IF NOT EXISTS wtaproject';
-    db.query(sql,err =>{
+//Profile page
+app.get('/profile.html',(req,res) =>{
+    let sql = 'SELECT * FROM User'
+    let query = db.query(sql,(err,results)=>{
         if(err){
             throw err;
         }
-        res.send('Database created successfully')
-    });
-});
+    var i = user_id-1;    
+    var user_name=results[i].Name;
+    var phone=results[i].Phone;
+    var email=results[i].Email;
+    var pin=results[i].Pincode;
+    var state=results[i].State;
+    var state_pin = state +","+ pin;
+    res.render('profile',{User_name:user_name,Phone_number:phone,Email:email,State_pin:state_pin});
+
+        // console.log(results)
+        // res.send('User details fetched')
+    })
+})
+
+app.post('/profile.html',(req, res) => {
+    user_id = req.params.user_id;
+    res.redirect("/profile.html");
+})
+
+//Create database
+// app.get('/createdb',(req,res) =>{
+//     let sql = 'CREATE DATABASE IF NOT EXISTS wtaproject';
+//     db.query(sql,err =>{
+//         if(err){
+//             throw err;
+//         }
+//         res.send('Database created successfully')
+//     });
+// });
 
 // //Create table
 // app.get('/createuser',(req,res) =>{
@@ -90,17 +129,17 @@ app.get('/createdb',(req,res) =>{
 //     })
 // })
 
-// //Select users
-// app.get('/getuser',(req, res)=>{
-//     let sql = 'SELECT * FROM User'
-//     let query = db.query(sql,(err,results)=>{
-//         if(err){
-//             throw err;
-//         }
-//         console.log(results)
-//         res.send('User details fetched')
-//     })
-// })
+//Select users
+app.get('/getuser',(req, res)=>{
+    let sql = 'SELECT * FROM User'
+    let query = db.query(sql,(err,results)=>{
+        if(err){
+            throw err;
+        }
+        console.log(results)
+        res.send('User details fetched')
+    })
+})
 
 // //Update user
 // app.get('/updateuser/:id',(req, res)=>{
@@ -117,4 +156,3 @@ app.get('/createdb',(req,res) =>{
 app.listen('3000',()=>{
     console.log('Server started on port 3000')
 })
-

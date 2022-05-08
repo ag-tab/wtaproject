@@ -42,7 +42,6 @@ function showSlides(n) {
         // }
 
        amt= "Rs "+amt+"/-";
-
      document.getElementById("amt").innerHTML = amt;
     }
 
