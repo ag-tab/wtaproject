@@ -51,11 +51,11 @@ function showSlides(n) {
      document.getElementById("60").style.background= "rgba(155, 153, 153, 0.562)";
      // document.getElementById("70").style.background = "#d1b94c";
      document.getElementById("70").style.background = "white";
-     document.getElementById("price").innerHTML = "Rs:50,000";
+     document.getElementById("price").innerHTML = "Rs:50000/-";
      document.getElementById("name").innerHTML= "Carbon Fibre Telescopic poles(60 ft)"
     var dropdown= document.getElementById("quantity");
     dropdown.selectedIndex=0;
-    document.getElementById("amt").innerHTML = "";
+    document.getElementById("amt").innerHTML = "Rs 50000/-";
 
 
  }
@@ -63,11 +63,11 @@ function showSlides(n) {
     document.getElementById("70").style.background= "rgba(155, 153, 153, 0.562)";
     // document.getElementById("60").style.background = "#d1b94c";
     document.getElementById("60").style.background = "white";
-    document.getElementById("price").innerHTML = "Rs:75,000";
+    document.getElementById("price").innerHTML = "Rs:75000/-";
     document.getElementById("name").innerHTML= "Carbon Fibre Telescopic poles(70 ft)"
     var dropdown= document.getElementById("quantity");
     dropdown.selectedIndex=0;
-    document.getElementById("amt").innerHTML = "";
+    document.getElementById("amt").innerHTML = "Rs 75000/-";
 
 }
 
@@ -76,11 +76,11 @@ function Size1(){
   // document.getElementById("60").style.background = "#d1b94c";
   document.getElementById("2").style.background = "white";
   document.getElementById("3").style.background = "white";
-  document.getElementById("pricelock").innerHTML = "Rs:500";
+  document.getElementById("pricelock").innerHTML = "Rs:500/-";
   document.getElementById("namelock").innerHTML= "Locks for Carbon Telescopic Poles (size1)"
   var dropdown= document.getElementById("quantitylock");
   dropdown.selectedIndex=0;
-  document.getElementById("amtlock").innerHTML = "";
+  document.getElementById("amtlock").innerHTML = "Rs 500/-";
 
 }
 
@@ -90,11 +90,11 @@ function Size2(){
   document.getElementById("1").style.background = "white";
   document.getElementById("3").style.background = "white";
   document.getElementById("Pack").style.background = "white";
-  document.getElementById("pricelock").innerHTML = "Rs:600";
+  document.getElementById("pricelock").innerHTML = "Rs:600/-";
   document.getElementById("namelock").innerHTML= "Locks for Carbon Telescopic Poles (size2)"
   var dropdown= document.getElementById("quantitylock");
   dropdown.selectedIndex=0;
-  document.getElementById("amtlock").innerHTML = "";
+  document.getElementById("amtlock").innerHTML = "Rs 600/-";
 
 }
 function Size3(){
@@ -103,11 +103,11 @@ function Size3(){
   document.getElementById("1").style.background = "white";
   document.getElementById("2").style.background = "white";
   document.getElementById("Pack").style.background = "white";
-  document.getElementById("pricelock").innerHTML = "Rs:700";
+  document.getElementById("pricelock").innerHTML = "Rs:700/-";
   document.getElementById("namelock").innerHTML= "Locks for Carbon Telescopic Poles (size3)"
   var dropdown= document.getElementById("quantitylock");
   dropdown.selectedIndex=0;
-  document.getElementById("amtlock").innerHTML = "";
+  document.getElementById("amtlock").innerHTML = "Rs 700/-";
 
 
 }
@@ -117,11 +117,11 @@ function Pack(){
   document.getElementById("1").style.background = "white";
   document.getElementById("2").style.background = "white";
   document.getElementById("3").style.background = "white";
-  document.getElementById("pricelock").innerHTML = "Rs:1,750";
+  document.getElementById("pricelock").innerHTML = "Rs:1750/-";
   document.getElementById("namelock").innerHTML= "Locks for Carbon Telescopic Poles(Pack)"
   var dropdown= document.getElementById("quantitylock");
   dropdown.selectedIndex=0;
-  document.getElementById("amtlock").innerHTML = "";
+  document.getElementById("amtlock").innerHTML = "Rs 1750/-";
 
 }
 
@@ -129,11 +129,11 @@ function FourBelt(){
   document.getElementById("4").style.background= "rgba(155, 153, 153, 0.562)";
   // document.getElementById("70").style.background = "#d1b94c";
   document.getElementById("6").style.background = "white";
-  document.getElementById("pricemachine").innerHTML = "Rs:1,50,000";
+  document.getElementById("pricemachine").innerHTML = "Rs:150000/-";
   document.getElementById("namemachine").innerHTML= "Dehusking Machine(4 belt)"
  var dropdown= document.getElementById("quantitymachine");
  dropdown.selectedIndex=0;
- document.getElementById("amtmachine").innerHTML = "";
+ document.getElementById("amtmachine").innerHTML = "Rs 150000/-";
 
 
 }
@@ -142,11 +142,11 @@ function SixBelt(){
   document.getElementById("6").style.background= "rgba(155, 153, 153, 0.562)";
   // document.getElementById("60").style.background = "#d1b94c";
   document.getElementById("4").style.background = "white";
-  document.getElementById("pricemachine").innerHTML = "Rs: 2,25,000";
+  document.getElementById("pricemachine").innerHTML = "Rs: 225000/-";
   document.getElementById("namemachine").innerHTML= "Dehusking Machine(6 belt)"
   var dropdown= document.getElementById("quantitymachine");
   dropdown.selectedIndex=0;
-  document.getElementById("amtmachine").innerHTML = "";
+  document.getElementById("amtmachine").innerHTML = "Rs 225000/-";
 
 }
 
@@ -200,8 +200,8 @@ addtocartbtnDom.forEach(addtocartbtnDom => {
     const product = {
       // img: productDom.querySelector(".product-img").getAttribute("src"),
       name: productDom.querySelector(".product-name").innerText,
-      price: productDom.querySelector(".product-price").innerText,
-      quantity: 1
+      price: productDom.querySelector(".product-price").innerText.split(":")[1].split("/")[0],
+      quantity: productDom.querySelector(".product-quantity").selectedIndex + 1
    };
 
 const IsinCart = cart.filter(cartItem => cartItem.name === product.name).length > 0;
@@ -213,13 +213,13 @@ if (IsinCart === false) {
         <p class="text-info cart_item_name">${product.name}</p>
     </div>
     <div class="p-2 mt-3">
-        <p class="text-success cart_item_price">${product.price}</p>
+        <p class="text-success cart_item_price">${product.price} Rs.</p>
     </div>
     <div class="p-2 mt-3 ml-auto">
         <button class="btn badge badge-secondary" type="button" data-action="increase-item">&plus;
     </div>
     <div class="p-2 mt-3">
-      <p class="text-success cart_item_quantity">${product.quantity}</p>
+      <p class="text-success cart_item_quantity"> ${product.quantity}</p>
     </div>
     <div class="p-2 mt-3">
       <button class="btn badge badge-info" type="button" data-action="decrease-item">&minus;
