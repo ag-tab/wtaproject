@@ -3,20 +3,20 @@ const mysql = require('mysql');
 const path = require('path');
 const bodyParser = require('body-parser');
 //Create connection
-const db = mysql.createConnection({
-    host: 'localhost',
-    user: 'pma',
-    password:'2430',
-    database: 'wtaproject'
-})
+// const db = mysql.createConnection({
+//     host: 'localhost',
+//     user: 'pma',
+//     password:'2430',
+//     database: 'wtaproject'
+// })
 
-//Connect to MySQL
-db.connect(err =>{
-    if(err){
-        throw err;
-    }
-    console.log('Connected to MySQL')
-})
+// //Connect to MySQL
+// db.connect(err =>{
+//     if(err){
+//         throw err;
+//     }
+//     console.log('Connected to MySQL')
+// })
 
 var user_id=1;
 
