@@ -20,7 +20,7 @@
       <h2>Welcome back,</h2>
 
 
-      <form action="/profile.html" method="post">
+      <form action="/logincredentials" method="post">
       <label>
         <span>Mobile No.</span>
         <input type="text" name="mobile">
@@ -57,15 +57,15 @@
       <div class="form sign-up">
         <h2>Welcome to Arecatech!</h2>
 
-        <form action="/login.html" method="post">
+        <form action="/adduser" method="post">
         <label>
           <span>Name</span>
-          <input type="text" id="name" style="font-family: Times New Roman;"/>
+          <input type="text" name="first_last_name" id="name" style="font-family: Times New Roman;"/>
           <div class="error" id="nameErr"></div>
         </label>
         <label>
           <span>Phone No.</span>
-          <input type="text" id="phone" style="font-family: Times New Roman;" />
+          <input type="text" name="phoneno" id="phone" style="font-family: Times New Roman;" />
           <div class="error" id="phoneErr"></div>
         </label>
 
@@ -77,7 +77,7 @@
 
   <label>
       <span>State:</span>
-      <select name="state" id="state" style="font-family: Times New Roman;" >
+      <select name="state" name="stateselect" id="state" style="font-family: Times New Roman;" >
           <option value="Andhra Pradesh " >Andhra Pradesh</option>
           <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
           <option value="Arunachal Pradesh">Arunachal Pradesh</option>
@@ -120,13 +120,13 @@
 
   <label>
       <span>PIN Code:</span>
-      <input type="text"  id="pin" style="font-family: Times New Roman;"/>
+      <input type="text" name="pincode" id="pin" style="font-family: Times New Roman;"/>
       <div class="error" id="pinErr"></div>
     </label>
 
         <label>
           <span>Email:</span>
-          <input type="email" id="email" style="font-family: Times New Roman; " />
+          <input type="email" name="e_mail" id="email" style="font-family: Times New Roman; " />
           <div class="error" id="emailErr"></div>
         </label>
 
@@ -134,7 +134,7 @@
           
           <span>DOB</span>
             <!-- <label for="DOB">DATE OF BIRTH</label> -->
-            <input type="date" id="dob" name="dob" style="font-family: Times New Roman;">
+            <input type="date" name="DOB" id="dob" name="dob" style="font-family: Times New Roman;">
             <div class="error" id="dobErr"></div>
           
         
@@ -142,12 +142,12 @@
 
         <label>
           <span>Password</span>
-          <input type="password" id="pass"/>
+          <input type="password" name="password" id="pass"/>
           <div class="error" id="passErr"></div>
         </label>
         
      
-        <button type="button" class="submit" type="submit"">Submit</button>
+        <button class="submit" type="submit"">Submit</button>
         <!-- <button type="button" class="submit" type="submit" onclick="validatePhoneNumber() ">Submit</button> -->
       </form>
         <!-- <button type="button" class="fb-btn">Join with <span>facebook</span></button> -->

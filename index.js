@@ -118,7 +118,27 @@ app.get('/profile',(req,res)=>{
         // res.send('User details fetched')
     })
 })
-app.post('/profile.html',(req, res) => {
+
+app.post('/adduser',(req,res)=>{
+    let uname = req.body.first_last_name;
+    let ph = req.body.phoneno;
+    // let st = req.body.stateselect;
+    let st = "Karnataka";           //State is having dropdown unlike other values which are of input type
+    let em = req.body.e_mail;
+    let pi = req.body.pincode;
+    let dob = req.body.DOB;
+    let pas = req.body.password;
+    console.log(req.body);
+    let sql = 'INSERT INTO User (Name,Date_of_birth,Pincode,Phone,Email,Password,State) VALUES ("'+uname+'","'+dob+'","'+pi+'","'+ph+'","'+em+'","'+pas+'","'+st+'");';
+    db.query(sql,err=>{
+        if(err){
+            throw err;
+        }
+        res.redirect('/login');
+    })
+})
+
+app.post('/logincredentials',(req, res) => {
     // user_id = req.params.user_id;
     // res.redirect("/profile.html");
 
