@@ -57,7 +57,7 @@
       <div class="form sign-up">
         <h2>Welcome to Arecatech!</h2>
 
-        <form action="/adduser" method="post">
+        <form action="/adduser" onsubmit="return validatePhoneNumber()" method="post">
         <label>
           <span>Name</span>
           <input type="text" name="first_last_name" id="name" style="font-family: Times New Roman;"/>

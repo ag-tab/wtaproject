@@ -151,6 +151,10 @@ else {
 console.log(nameErr, emailErr ,phoneErr ,pinErr,dobErr,passErr);
 if(!nameErr && !emailErr && !phoneErr && !pinErr && !dobErr && !passErr){
        window.location.href='login.html';
+       return true;
+}
+else{
+  return false;
 }
 
 
