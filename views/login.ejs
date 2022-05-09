@@ -18,22 +18,25 @@
   <div class="cont">
     <div class="form sign-in">
       <h2>Welcome back,</h2>
+
+
+      <form action="/profile.html" method="post">
       <label>
         <span>Mobile No.</span>
-        <input type="email" />
+        <input type="text" name="mobile">
       </label>
 
 
 
       <label>
         <span>Password</span>
-        <input type="password" />
+        <input type="password" name="password">
       </label>
       <!-- <p class="forgot-pass">Forgot password?</p> -->
-      <button type="button" class="submit">Sign In</button>
-      <!-- <form type="hidden" action="/profile.html" method="post"> -->
-          <input type="text">
+      <button class="submit" type="submit" name="">Sign In</button>
+            
       </form>
+
       <button type="button" class="fb-btn" onclick="window.location.href='mainpage.html'">Back <span>Home</span></button>
     </div>
     <div class="sub-cont">
@@ -53,13 +56,17 @@
       </div>
       <div class="form sign-up">
         <h2>Welcome to Arecatech!</h2>
+
+        <form action="/login.html" method="post">
         <label>
           <span>Name</span>
-          <input type="text" />
+          <input type="text" id="name" style="font-family: Times New Roman;"/>
+          <div class="error" id="nameErr"></div>
         </label>
         <label>
           <span>Phone No.</span>
-          <input type="text" />
+          <input type="text" id="phone" style="font-family: Times New Roman;" />
+          <div class="error" id="phoneErr"></div>
         </label>
 
         <!-- <label>
@@ -70,8 +77,8 @@
 
   <label>
       <span>State:</span>
-      <select name="state" id="state" >
-          <option value="Andhra Pradesh">Andhra Pradesh</option>
+      <select name="state" id="state" style="font-family: Times New Roman;" >
+          <option value="Andhra Pradesh " >Andhra Pradesh</option>
           <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
           <option value="Arunachal Pradesh">Arunachal Pradesh</option>
           <option value="Assam">Assam</option>
@@ -113,19 +120,36 @@
 
   <label>
       <span>PIN Code:</span>
-      <input type="text" />
+      <input type="text"  id="pin" style="font-family: Times New Roman;"/>
+      <div class="error" id="pinErr"></div>
     </label>
 
         <label>
-          <span>Address:</span>
-          <input type="email" />
+          <span>Email:</span>
+          <input type="email" id="email" style="font-family: Times New Roman; " />
+          <div class="error" id="emailErr"></div>
+        </label>
+
+        <label>
+          
+          <span>DOB</span>
+            <!-- <label for="DOB">DATE OF BIRTH</label> -->
+            <input type="date" id="dob" name="dob" style="font-family: Times New Roman;">
+            <div class="error" id="dobErr"></div>
+          
+        
         </label>
 
         <label>
           <span>Password</span>
-          <input type="password" />
+          <input type="password" id="pass"/>
+          <div class="error" id="passErr"></div>
         </label>
-        <button type="button" class="submit" onclick="window.location.href='login.html'">Sign Up</button>
+        
+     
+        <button type="button" class="submit" type="submit"">Submit</button>
+        <!-- <button type="button" class="submit" type="submit" onclick="validatePhoneNumber() ">Submit</button> -->
+      </form>
         <!-- <button type="button" class="fb-btn">Join with <span>facebook</span></button> -->
       </div>
     </div>

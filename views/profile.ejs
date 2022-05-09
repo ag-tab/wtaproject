@@ -152,7 +152,10 @@
 		<p><i class="fa fa-home info"></i><%= State_pin%></p>
 		<hr>
 		<div class="text-center">
-		<button class="btn">Logout</button>
+		<button class="btn" onclick="window.location.href='mainpage.html'">Home</button>
+		<form action="/logout" method="post">
+		<button class="btn" type="submit"">Logout</button>
+	    </form>
 		</div>
 	</div>
 </div>

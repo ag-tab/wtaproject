@@ -19,9 +19,11 @@ db.connect(err =>{
 })
 
 var user_id=1;
-
+var valid;
+var loggedin = false;
 const app = express()
 
+app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(express.static("public"))
@@ -66,9 +68,17 @@ app.get('/payment.html',(req,res) =>{
 
 //Login page
 app.get('/login.html',(req,res) =>{
-    res.sendFile(__dirname+'/login.html');
-})
+    if(loggedin)
+        res.redirect('/profile');
+    res.render('login');
+    // if(valid)
+    //     res.redirect('/profile.html');
 
+})
+app.get('/login',(req,res) =>{
+    loggedin = false;
+    res.render('login');
+})
 //Profile page
 app.get('/profile.html',(req,res) =>{
     let sql = 'SELECT * FROM User'
@@ -76,23 +86,68 @@ app.get('/profile.html',(req,res) =>{
         if(err){
             throw err;
         }
-    var i = user_id-1;    
-    var user_name=results[i].Name;
-    var phone=results[i].Phone;
-    var email=results[i].Email;
-    var pin=results[i].Pincode;
-    var state=results[i].State;
-    var state_pin = state +","+ pin;
-    res.render('profile',{User_name:user_name,Phone_number:phone,Email:email,State_pin:state_pin});
+        var i = user_id-1;    
+        var user_name=results[i].Name;
+        var phone=results[i].Phone;
+        var email=results[i].Email;
+        var pin=results[i].Pincode;
+        var state=results[i].State;
+        var state_pin = state +","+ pin;
+        res.render('profile',{User_name:user_name,Phone_number:phone,Email:email,State_pin:state_pin});
 
         // console.log(results)
         // res.send('User details fetched')
     })
 })
+app.get('/profile',(req,res)=>{
+    let sql = 'SELECT * FROM User'
+    let query = db.query(sql,(err,results)=>{
+        if(err){
+            throw err;
+        }
+        var i = user_id-1;    
+        var user_name=results[i].Name;
+        var phone=results[i].Phone;
+        var email=results[i].Email;
+        var pin=results[i].Pincode;
+        var state=results[i].State;
+        var state_pin = state +","+ pin;
+        res.render('profile',{User_name:user_name,Phone_number:phone,Email:email,State_pin:state_pin});
 
+        // console.log(results)
+        // res.send('User details fetched')
+    })
+})
 app.post('/profile.html',(req, res) => {
-    user_id = req.params.user_id;
-    res.redirect("/profile.html");
+    // user_id = req.params.user_id;
+    // res.redirect("/profile.html");
+
+    let num = ""+req.body.mobile;
+    let pas = req.body.password;
+    // let sql = 'SELECT Password FROM User WHERE Phone='+num+';';
+    let sql = 'SELECT User_id,Password FROM User WHERE Phone='+num+';';
+    db.query(sql,(err,results)=>{
+        if(err){
+            throw err;
+        }
+        if(results[0].Password==pas){
+            valid = true;
+            user_id = results[0].User_id;
+            loggedin = true;
+        }
+        else
+            valid = false;
+        
+        if(valid)
+            res.redirect('/profile')
+        else
+            res.redirect('/login');
+    })
+    
+})
+
+app.post('/logout',(req, res) => {
+    res.redirect('/login')
 })
 
 //Create database
@@ -129,17 +184,17 @@ app.post('/profile.html',(req, res) => {
 //     })
 // })
 
-//Select users
-app.get('/getuser',(req, res)=>{
-    let sql = 'SELECT * FROM User'
-    let query = db.query(sql,(err,results)=>{
-        if(err){
-            throw err;
-        }
-        console.log(results)
-        res.send('User details fetched')
-    })
-})
+// // Select users
+// app.get('/getuser',(req, res)=>{
+//     let sql = 'SELECT * FROM User'
+//     let query = db.query(sql,(err,results)=>{
+//         if(err){
+//             throw err;
+//         }
+//         console.log(results)
+//         res.send('User details fetched')
+//     })
+// })
 
 // //Update user
 // app.get('/updateuser/:id',(req, res)=>{
@@ -151,6 +206,11 @@ app.get('/getuser',(req, res)=>{
 //         }
 //         res.send('User updated')
 //     })
+// })
+
+// //Add cart items
+// app.get('/payment.html',(req,res)=>{
+
 // })
 
 app.listen('3000',()=>{

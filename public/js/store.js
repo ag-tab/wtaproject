@@ -213,7 +213,7 @@ if (IsinCart === false) {
         <p class="text-info cart_item_name">${product.name}</p>
     </div>
     <div class="p-2 mt-3">
-        <p class="text-success cart_item_price">${product.price} Rs.</p>
+        <p class="text-success cart_item_price">Rs. ${product.price}</p>
     </div>
     <div class="p-2 mt-3 ml-auto">
         <button class="btn badge badge-secondary" type="button" data-action="increase-item">&plus;
